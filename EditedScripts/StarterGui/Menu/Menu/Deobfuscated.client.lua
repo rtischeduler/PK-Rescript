@@ -782,6 +782,19 @@ local isMenuOpen = false
 -- PATCH 2: Menu Navigation System
 --==========================================================================
 
+-- Panels that overlay the menu instead of being "screens" (same list the Back handler skips)
+local PANEL_OVERLAYS = { PlayerInfo = true, Prompt = true, Drops = true, Emotes = true }
+
+-- Per-panel token: a slide-out only hides its panel if nothing re-opened/re-closed it since.
+local panelTokens = setmetatable({}, { __mode = "k" })
+
+-- A panel is open when it is visible and sitting at its EndPos
+local function isPanelOpen(panel)
+	local positions = panel:FindFirstChild("Positions")
+	local endPosObj = positions and positions:FindFirstChild("EndPos")
+	return endPosObj ~= nil and panel.Visible and panel.Position == endPosObj.Position
+end
+
 -- TweenToPanel: tweens a panel from StartPos to EndPos (slide in)
 local function TweenToPanel(panel)
 	local tweenSpeed = panel:FindFirstChild("TweenSpeed")
@@ -792,6 +805,9 @@ local function TweenToPanel(panel)
 	local endPosObj = positions:FindFirstChild("EndPos")
 	if not endPosObj then return end
 	local endPos = endPosObj.Position
+
+	-- Invalidate any pending slide-out so it cannot hide this panel after it re-opens
+	panelTokens[panel] = (panelTokens[panel] or 0) + 1
 
 	-- Make the panel visible before tweening it in
 	panel.Visible = true
@@ -827,35 +843,46 @@ local function TweenFromPanel(panel)
 	if not startPosObj then return end
 	local startPos = startPosObj.Position
 
+	local token = (panelTokens[panel] or 0) + 1
+	panelTokens[panel] = token
+
 	local tweenInfo = TweenInfo.new(speed, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(panel, tweenInfo, { Position = startPos })
 	tween:Play()
-	-- Hide panel after it finishes sliding out so panels don't pile up
+	-- Hide panel after it finishes sliding out, unless it was re-opened meanwhile
 	tween.Completed:Connect(function()
-		panel.Visible = false
+		if panelTokens[panel] == token then
+			panel.Visible = false
+		end
 	end)
 end
 
--- NavigateTo: hide current panel (slide out), show target panel (slide in)
+-- NavigateTo: slide out EVERY other open screen panel, slide in the target.
+-- Does not depend on a remembered "current" panel, because the Back handlers and
+-- the kaiju menu code move panels without going through here.
 local currentPanel = nil
 
 local function NavigateTo(targetPanel)
 	if isBusy then return end
-	if targetPanel == currentPanel then return end
+	if not targetPanel or isPanelOpen(targetPanel) then return end
 	isBusy = true
 
 	-- Play click sound on every navigation
-	if sounds and sounds:FindFirstChild("Click") then
-		if sounds and sounds:FindFirstChild("Click") then playClick() end
-	end
+	playClick()
 
-	local oldPanel = currentPanel
 	currentPanel = targetPanel
 
 	-- Use pcall so isBusy always resets even if tween errors
 	local success, err = pcall(function()
-		if oldPanel then
-			TweenFromPanel(oldPanel)
+		for _, child in menu:GetChildren() do
+			if child ~= targetPanel
+				and child:IsA("GuiObject")
+				and not PANEL_OVERLAYS[child.Name]
+				and child:FindFirstChild("Positions")
+				and child.Visible
+				and not targetPanel:IsDescendantOf(child) then
+				TweenFromPanel(child)
+			end
 		end
 
 		-- Small delay before sliding in the new panel
@@ -3488,3 +3515,27 @@ end)
 
 -- Also call once immediately
 updateXPBars()
+
+--==========================================================================
+-- PATCH 32: isBusy watchdog
+-- Several handlers set isBusy and only clear it at the end of their own
+-- tween/wait chain; if one errors, navigation would stay locked forever.
+-- Releases the lock after 6s, except while a lootbox sequence is running.
+--==========================================================================
+task.spawn(function()
+	local busySince = nil
+	while true do
+		task.wait(0.5)
+		local lootboxActive = isLootboxRolling or (menu:FindFirstChild("Drops") and menu.Drops.Visible)
+		if isBusy and not lootboxActive then
+			busySince = busySince or os.clock()
+			if os.clock() - busySince > 6 then
+				warn("[Deobfuscated] isBusy stuck for 6s - releasing navigation lock")
+				isBusy = false
+				busySince = nil
+			end
+		else
+			busySince = nil
+		end
+	end
+end)
