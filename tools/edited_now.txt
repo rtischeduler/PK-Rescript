@@ -1,1 +1,1 @@
-ReplicatedStorage/CombatSystem.lua
+StarterGui/Menu/Menu/Deobfuscated.client.lua
