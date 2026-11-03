@@ -146,7 +146,7 @@ jobs:
           if not okXml then
               print("WARNING: could not convert place to rbxlx (" .. tostring(errXml) .. "), skipping the XML copy")
               if fs.isFile(xmlPath) then fs.removeFile(xmlPath) end
-              collectgarbage()
+              collectgarbage("collect")
           end
 
           local function sanitize(name: string): string
