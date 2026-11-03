@@ -1,0 +1,24 @@
+local v1 = {}
+v1.Music = "rbxassetid://2329042320"
+v1.KaijuImage = "rbxassetid://6901145957"
+v1.KaijuName = "Tricky"
+v1.MaxZoom = 350
+v1.MinZoom = 40
+v1.LockOnDistance = 15
+v1.CanSprint = true
+v1.WalkSpeed = 30
+v1.SwimSpeed = 4
+v1.SprintSpeed = 55
+v1.Health = 1500
+v1.HipHeight = 25.5
+v1.Idle = 6950897232
+v1.Walk = 6950894415
+v1.Sprint = 6950873709
+v1.Grabbed = 5395217531
+v1.Swim = 5461860415
+v1.SwimIdle = 5455534914
+v1.Stun = 5396906776
+v1.KnockBack = 5396938053
+v1.OverHead = 5396975478
+v1.KnockDown = 5416684797
+return v1

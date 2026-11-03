@@ -1,0 +1,4011 @@
+[
+  {
+    "class": "Color3Value",
+    "count": 2180,
+    "names": [
+      "NormalColor"
+    ],
+    "parent": "Workspace/Buildings/Building/Part"
+  },
+  {
+    "class": "BoolValue",
+    "count": 1715,
+    "names": [
+      "IFrame",
+      "Countering",
+      "Blocking",
+      "Armor",
+      "Roaring"
+    ],
+    "parent": "Workspace/Buildings/Building/Aspects/Defense"
+  },
+  {
+    "class": "NumberValue",
+    "count": 1372,
+    "names": [
+      "Stamina",
+      "Health",
+      "Rage",
+      "Weight"
+    ],
+    "parent": "Workspace/Buildings/Building/Aspects/Info"
+  },
+  {
+    "class": "BoolValue",
+    "count": 1029,
+    "names": [
+      "Grabbed",
+      "Knockdown",
+      "Stunned"
+    ],
+    "parent": "Workspace/Buildings/Building/Aspects/Stun"
+  },
+  {
+    "class": "NumberValue",
+    "count": 686,
+    "names": [
+      "Skin",
+      "Kaiju"
+    ],
+    "parent": "Workspace/Buildings/Building/Spawn"
+  },
+  {
+    "class": "Color3Value",
+    "count": 686,
+    "names": [
+      "BaseColor",
+      "UltColor"
+    ],
+    "parent": "Workspace/Buildings/Building/Aspects/Colors"
+  },
+  {
+    "class": "BoolValue",
+    "count": 660,
+    "names": [
+      "LAttacking"
+    ],
+    "parent": "Workspace/Buildings/Building/Aspects/Info"
+  },
+  {
+    "class": "StringValue",
+    "count": 343,
+    "names": [
+      "Team"
+    ],
+    "parent": "Workspace/Buildings/Building/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 343,
+    "names": [
+      "MaxHealth"
+    ],
+    "parent": "Workspace/Buildings/Building/Aspects/Info/Health"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 343,
+    "names": [
+      "Thrower"
+    ],
+    "parent": "Workspace/Buildings/Building/Aspects/Building/Thrown"
+  },
+  {
+    "class": "NumberValue",
+    "count": 343,
+    "names": [
+      "MaxStamina"
+    ],
+    "parent": "Workspace/Buildings/Building/Aspects/Info/Stamina"
+  },
+  {
+    "class": "NumberValue",
+    "count": 343,
+    "names": [
+      "SinkSpeed"
+    ],
+    "parent": "Workspace/Buildings/Building/BuildingScript"
+  },
+  {
+    "class": "NumberValue",
+    "count": 343,
+    "names": [
+      "MaxRage"
+    ],
+    "parent": "Workspace/Buildings/Building/Aspects/Info/Rage"
+  },
+  {
+    "class": "BoolValue",
+    "count": 343,
+    "names": [
+      "Thrown"
+    ],
+    "parent": "Workspace/Buildings/Building/Aspects/Building"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 343,
+    "names": [
+      "Building"
+    ],
+    "parent": "Workspace/Buildings/Building/Aspects"
+  },
+  {
+    "class": "BoolValue",
+    "count": 317,
+    "names": [
+      "BuildingScript"
+    ],
+    "parent": "Workspace/Buildings/Building"
+  },
+  {
+    "class": "CFrameValue",
+    "count": 204,
+    "names": [
+      "Side4_end_Initial",
+      "Side4_end_Original",
+      "Side4_end_Composited",
+      "Side4_Initial",
+      "Side4_Original",
+      "Side4_Composited"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/DevKaijus/Gamma/Gamma-Default/InitialPoses"
+  },
+  {
+    "class": "BoolValue",
+    "count": 145,
+    "names": [
+      "AlreadyFound"
+    ],
+    "parent": "Workspace/Buildings/Building/HumanoidRootPart/ProximityPrompt"
+  },
+  {
+    "class": "BoolValue",
+    "count": 95,
+    "names": [
+      "Visible"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Casauran-Default/NEWPARTS"
+  },
+  {
+    "class": "IntValue",
+    "count": 60,
+    "names": [
+      "Null"
+    ],
+    "parent": "ReplicatedStorage/Animations/Destoroyah/Animations/Idle/destroyah idle/Keyframe/HumanoidRootPart"
+  },
+  {
+    "class": "IntValue",
+    "count": 39,
+    "names": [
+      "Null"
+    ],
+    "parent": "ReplicatedStorage/Animations/Destoroyah/Animations/Sprint/destroyah run1/Keyframe/HumanoidRootPart"
+  },
+  {
+    "class": "IntValue",
+    "count": 39,
+    "names": [
+      "Null"
+    ],
+    "parent": "ReplicatedStorage/Animations/Destoroyah/Animations/Walk/destroyah walk1/Keyframe/HumanoidRootPart"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Default/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Peach/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Samurai/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oni/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Bark/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Charmed/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Lemon/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/ShowaGigan-Default/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Bird/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Shogun/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oceanic/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Apple/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Night/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 31,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Wise/ECT/Chest2 ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 30,
+    "names": [
+      "Blocking",
+      "Armor",
+      "IFrame",
+      "Roaring",
+      "Countering"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/Aspects/Defense"
+  },
+  {
+    "class": "NumberValue",
+    "count": 24,
+    "names": [
+      "Stamina",
+      "Weight",
+      "Health",
+      "Rage"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/Aspects/Info"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Lemon/ECT/Torso ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Samurai/ECT/Torso ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Bark/ECT/Torso ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Wise/ECT/Torso ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Night/ECT/Torso ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Peach/ECT/Torso ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Bird/ECT/Torso ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Apple/ECT/Torso ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oni/ECT/Torso ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Charmed/ECT/Torso ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oceanic/ECT/Torso ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Shogun/ECT/Torso ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Default/ECT/Torso ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 22,
+    "names": [
+      "Visible"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/ShowaGigan-Default/ECT/Torso ECT"
+  },
+  {
+    "class": "Color3Value",
+    "count": 21,
+    "names": [
+      "Glacier",
+      "Ice",
+      "Salt",
+      "Asphalt",
+      "Ground",
+      "Mud"
+    ],
+    "parent": "Lighting/TerrainData/Map2/MaterialColors"
+  },
+  {
+    "class": "Color3Value",
+    "count": 21,
+    "names": [
+      "Glacier",
+      "Ice",
+      "Salt",
+      "Asphalt",
+      "Ground",
+      "Mud"
+    ],
+    "parent": "Lighting/TerrainData/Map1/MaterialColors"
+  },
+  {
+    "class": "StringValue",
+    "count": 20,
+    "names": [
+      "mood",
+      "walk",
+      "swimidle",
+      "swim",
+      "run",
+      "wave"
+    ],
+    "parent": "Workspace/Rig/Animate"
+  },
+  {
+    "class": "BoolValue",
+    "count": 18,
+    "names": [
+      "Stunned",
+      "Knockdown",
+      "Grabbed"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/Aspects/Stun"
+  },
+  {
+    "class": "NumberValue",
+    "count": 16,
+    "names": [
+      "TurnX",
+      "TurnY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Godaran-EVA/IsPlayer/TurnMotor"
+  },
+  {
+    "class": "IntValue",
+    "count": 13,
+    "names": [
+      "Null"
+    ],
+    "parent": "ReplicatedStorage/Animations/Gigan/Animations/Idle/Untitled/Keyframe/HumanoidRootPart"
+  },
+  {
+    "class": "BoolValue",
+    "count": 12,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oni/ECT/Feather"
+  },
+  {
+    "class": "BoolValue",
+    "count": 12,
+    "names": [
+      "LAttacking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 12,
+    "names": [
+      "DLY",
+      "Duration"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Gigan/Teleport/WD/bits [2]"
+  },
+  {
+    "class": "NumberValue",
+    "count": 12,
+    "names": [
+      "DLY",
+      "Duration"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/ShowaGigan/Teleport/WD/bits [2]"
+  },
+  {
+    "class": "Color3Value",
+    "count": 12,
+    "names": [
+      "UltColor",
+      "BaseColor"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/Aspects/Colors"
+  },
+  {
+    "class": "NumberValue",
+    "count": 12,
+    "names": [
+      "Kaiju",
+      "Skin"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/Spawn"
+  },
+  {
+    "class": "IntValue",
+    "count": 11,
+    "names": [
+      "Null"
+    ],
+    "parent": "ReplicatedStorage/Animations/Gigan/Animations/Idle/Untitled/Keyframe/HumanoidRootPart/Torso"
+  },
+  {
+    "class": "BoolValue",
+    "count": 10,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Godaran-EVA/Aspects/Defense"
+  },
+  {
+    "class": "NumberValue",
+    "count": 10,
+    "names": [
+      "TurnY",
+      "TurnX"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/Obsidius/IsPlayer/TurnMotor"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/T8/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/T16/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/T10/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/T8/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/RLeg/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/Rand/Attachment/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/Land/Attachment/ParticleEmitter"
+  },
+  {
+    "class": "BoolValue",
+    "count": 8,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Night/Eye"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/LLeg/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/Rand/Attachment/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/LForearm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Speed",
+      "Delay"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Teleport/Shock"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/LAnkle/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/T10/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/T12/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/Cylinder/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/LArm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/RArm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/T12/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/LForearm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/T18/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/T8/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/RAnkle/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "TurnX",
+      "TurnY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/IsPlayer/TurnMotor"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "TurnX",
+      "TurnY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/IsPlayer/TurnMotor"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/LArm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/LLeg/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/T18/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/LArm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/T16/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/T14/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/LAnkle/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "TurnX",
+      "TurnY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Godaran-Ancestor/IsPlayer/TurnMotor"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/T10/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/RAnkle/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/T10/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/RLeg/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/T12/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/T14/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/LAnkle/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/T16/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "TurnX",
+      "TurnY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/IsPlayer/TurnMotor"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Godaran-EVA/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/RForearm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/LAnkle/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/Cylinder/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/LLeg/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/RArm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/T18/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "TurnX",
+      "TurnY"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/GODARANMATERIAL/Godaran-Default/IsPlayer/TurnMotor"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/T14/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/T8/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/RArm/ParticleEmitter"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 8,
+    "names": [
+      "Target",
+      "GrabType",
+      "AttackSound",
+      "EnemySpot",
+      "HitEffect",
+      "HitPart"
+    ],
+    "parent": "Lighting/Assets/OtherScripts/StunScript"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Speed",
+      "Delay"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/Teleport/Shock"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/RLeg/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/RAnkle/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "TurnX",
+      "TurnY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/IsPlayer/TurnMotor"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/Rand/Attachment/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/Land/Attachment/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/RForearm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/Land/Attachment/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/T14/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/RArm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/RForearm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/LArm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/Cylinder/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/Cylinder/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/LLeg/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/T12/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/Land/Attachment/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/LForearm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/RLeg/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/LForearm/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/RAnkle/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/T18/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "TurnY",
+      "TurnX"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/CRUSTACIAMATERIAL/Crustacia-Default/IsPlayer/TurnMotor"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/T16/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/RForearm/ParticleEmitter"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 8,
+    "names": [
+      "Target",
+      "GrabType",
+      "AttackSound",
+      "EnemySpot",
+      "HitEffect",
+      "HitPart"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/OtherScripts/StunScript"
+  },
+  {
+    "class": "NumberValue",
+    "count": 8,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/Rand/Attachment/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 7,
+    "names": [
+      "Volume",
+      "LightEmission",
+      "Transparency",
+      "IntensityRatio",
+      "SpeedRatio",
+      "LightInfluence"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Model/UI/Rain/RainScript"
+  },
+  {
+    "class": "BoolValue",
+    "count": 7,
+    "names": [
+      "Draw",
+      "Influence",
+      "Blocking",
+      "Armor",
+      "Grabbed",
+      "IFrame"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/DevKaijus/Gilga/Gilga-Default/Aspects"
+  },
+  {
+    "class": "NumberValue",
+    "count": 7,
+    "names": [
+      "Volume",
+      "LightEmission",
+      "Transparency",
+      "IntensityRatio",
+      "SpeedRatio",
+      "LightInfluence"
+    ],
+    "parent": "Lighting/Assets/UI/Rain/RainScript"
+  },
+  {
+    "class": "BoolValue",
+    "count": 6,
+    "names": [
+      "BuildingScript"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building"
+  },
+  {
+    "class": "NumberValue",
+    "count": 6,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Gigan/Saw/WD/Attachment/Ring"
+  },
+  {
+    "class": "BoolValue",
+    "count": 6,
+    "names": [
+      "Grabbed",
+      "Knockdown",
+      "Stunned"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Godaran-EVA/Aspects/Stun"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 6,
+    "names": [
+      "Building"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/Aspects"
+  },
+  {
+    "class": "NumberValue",
+    "count": 6,
+    "names": [
+      "MaxHealth"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/Aspects/Info/Health"
+  },
+  {
+    "class": "BoolValue",
+    "count": 6,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Subject/ECT/RThigh"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 6,
+    "names": [
+      "BeamStruggleExplode",
+      "BeamStruggle",
+      "LastHit"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Godaran-EVA/Aspects/Info"
+  },
+  {
+    "class": "IntValue",
+    "count": 6,
+    "names": [
+      "Energy3",
+      "Energy2",
+      "Energy1"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/MinusOne/CharacterAssets/ScriptManagement"
+  },
+  {
+    "class": "NumberValue",
+    "count": 6,
+    "names": [
+      "Speed",
+      "Delay"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/ShowaGigan/ULT/Circle"
+  },
+  {
+    "class": "NumberValue",
+    "count": 6,
+    "names": [
+      "HeadScale",
+      "BodyDepthScale",
+      "BodyHeightScale",
+      "BodyWidthScale",
+      "BodyProportionScale",
+      "BodyTypeScale"
+    ],
+    "parent": "Workspace/Rig/Humanoid"
+  },
+  {
+    "class": "NumberValue",
+    "count": 6,
+    "names": [
+      "Speed",
+      "Delay"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Gigan/ULT/Circle"
+  },
+  {
+    "class": "NumberValue",
+    "count": 6,
+    "names": [
+      "MaxStamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/Aspects/Info/Stamina"
+  },
+  {
+    "class": "BoolValue",
+    "count": 6,
+    "names": [
+      "Thrown"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/Aspects/Building"
+  },
+  {
+    "class": "NumberValue",
+    "count": 6,
+    "names": [
+      "TurnY",
+      "TurnX"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Beetalon-Default/Parts/TurnMotor"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 6,
+    "names": [
+      "Thrower"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/Aspects/Building/Thrown"
+  },
+  {
+    "class": "NumberValue",
+    "count": 6,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/ShowaGigan/Saw/WD/Attachment/Ring"
+  },
+  {
+    "class": "NumberValue",
+    "count": 6,
+    "names": [
+      "SinkSpeed"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/BuildingScript"
+  },
+  {
+    "class": "StringValue",
+    "count": 6,
+    "names": [
+      "Team"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 6,
+    "names": [
+      "TurnY",
+      "TurnX"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Casauran-Default/IsPlayer/TurnMotor"
+  },
+  {
+    "class": "NumberValue",
+    "count": 6,
+    "names": [
+      "MaxRage"
+    ],
+    "parent": "ReplicatedStorage/Assets/Maps/HoldingFacility/Building/Aspects/Info/Rage"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Blocking",
+      "Armor",
+      "Grabbed",
+      "IFrame",
+      "Stunned"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/DevKaijus/Tricky/Tricky-Purple/Aspects"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Cyber/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/CRUSTACIAMATERIAL/Crustacia-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Samurai/Aspects/Defense"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 5,
+    "names": [
+      "Particle2",
+      "ClashPart",
+      "Particle",
+      "Enemy",
+      "Player"
+    ],
+    "parent": "Lighting/Assets/OtherScripts/BeamClash"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/Map/DummyG2K/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Night/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Oak/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Waste/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Subject/Aspects/Defense"
+  },
+  {
+    "class": "IntValue",
+    "count": 5,
+    "names": [
+      "Null"
+    ],
+    "parent": "ReplicatedStorage/Animations/Gigan/Animations/Idle/Untitled/Keyframe/HumanoidRootPart/Torso/Chest"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/ShowaGigan-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Titanus/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Kamen/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Autumn/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Apple/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Charcoal/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Default/Aspects/Defense"
+  },
+  {
+    "class": "NumberValue",
+    "count": 5,
+    "names": [
+      "VelocityTime",
+      "GrabTime",
+      "StunTime",
+      "RageGain",
+      "Damage"
+    ],
+    "parent": "Lighting/Assets/OtherScripts/StunScript"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Oceanic/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Oceanic/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Raptor/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/DevKaijus/Gamma/Gamma-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Destoroyah/Destoroyah-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Grasslands/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Unleashed/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Blocking",
+      "Armor",
+      "Grabbed",
+      "IFrame",
+      "Stunned"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/DevKaijus/Tricky/Tricky-Gold/Aspects"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/KaijusUnused/Models/DummyG2K/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/DummyG2k/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Bark/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oni/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/TitanusGodzilla/TitanusGodzilla-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Blocking",
+      "Armor",
+      "Grabbed",
+      "IFrame",
+      "Stunned"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/DevKaijus/Tricky/Tricky-Cyan/Aspects"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Peach/Aspects/Defense"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 5,
+    "names": [
+      "Particle2",
+      "ClashPart",
+      "Particle",
+      "Enemy",
+      "Player"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/OtherScripts/BeamClash"
+  },
+  {
+    "class": "NumberValue",
+    "count": 5,
+    "names": [
+      "Tick",
+      "ScoreToWin",
+      "Timer",
+      "BlueTeam",
+      "RedTeam"
+    ],
+    "parent": "Workspace/Server/GameModeScripts/TeamBattle"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Sandy/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Rusted/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Beetalon-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Demon/Aspects/Defense"
+  },
+  {
+    "class": "IntValue",
+    "count": 5,
+    "names": [
+      "Null"
+    ],
+    "parent": "ReplicatedStorage/Animations/Gigan/Animations/Idle/Untitled/Keyframe/HumanoidRootPart/Torso/Chest/Chest2/LArm1"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Blazing/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Casauran-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Toxic/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Melanistic/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/KaijusUnused/Models/TitanusGodzilla/TitanusGodzilla-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Zillark/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Godaran-Ancestor/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Lemon/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Chomper/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Earth/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Horned/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Night/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Thorned/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Moss/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Vespulite-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/DevKaijus/Tricky/Tricky-Wallace/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Absorbed/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Abyssal/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Crayon/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Doppel/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Bird/Aspects/Defense"
+  },
+  {
+    "class": "NumberValue",
+    "count": 5,
+    "names": [
+      "VelocityTime",
+      "GrabTime",
+      "StunTime",
+      "RageGain",
+      "Damage"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/OtherScripts/StunScript"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oni/ECT/LFoot ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Charcoal/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-1998/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oni/ECT/RFoot ECT"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Shogun/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oceanic/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Gobbler/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/DevKaijus/Tricky/Tricky-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Ravaged/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Autumn/Aspects/Defense"
+  },
+  {
+    "class": "NumberValue",
+    "count": 5,
+    "names": [
+      "InfSize1",
+      "StopSpeed",
+      "StartSpeed",
+      "Intensity",
+      "Size"
+    ],
+    "parent": "StarterGui/GameGui/UIFunctions/FireFunctions/Values"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Wise/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Absorbed/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Rose/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Charmed/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Punk/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/GODARANMATERIAL/Godaran-Default/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Mud/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 5,
+    "names": [
+      "Countering",
+      "Roaring",
+      "IFrame",
+      "Armor",
+      "Blocking"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/Obsidius/Aspects/Defense"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Bark/Eye"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 4,
+    "names": [
+      "SelectedObject",
+      "KaijuFolder",
+      "KaijuModel",
+      "KaijuMenu"
+    ],
+    "parent": "ReplicatedStorage/Menu/Menu/Values"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/DevKaijus/Tricky/Tricky-Default/Aspects/Info"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oni/ECT/LeftArmSpikes"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Chomper/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/DummyG2k/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Moss/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Melanistic/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "Lighting/KaijusUnused/Models/TitanusGodzilla/TitanusGodzilla-Default/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Gigan/Beam/Attachment/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Demon/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "WaterWaveSpeed",
+      "WaterWaveSize",
+      "WaterTransparency",
+      "WaterReflectance"
+    ],
+    "parent": "Lighting/TerrainData/Map1/WaterProperties"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Charmed/Eye"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Earth/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/Obsidius/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Oceanic/Aspects/Info"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oni/Eye"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "WaterWaveSpeed",
+      "WaterWaveSize",
+      "WaterTransparency",
+      "WaterReflectance"
+    ],
+    "parent": "Lighting/TerrainData/Map2/WaterProperties"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Autumn/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Delay",
+      "Speed"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/ShowaGigan/ULT/Red"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Delay",
+      "Speed"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/ShowaGigan/SwordsSlam/ArmWave"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Default/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Oak/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Zillark/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Godaran-Ancestor/Aspects/Info"
+  },
+  {
+    "class": "StringValue",
+    "count": 4,
+    "names": [
+      "Floor",
+      "Attack",
+      "StunAnimation",
+      "AttackType"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/OtherScripts/StunScript"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Speed",
+      "Delay"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/ShowaGigan/SwordsSlam/Shockwave"
+  },
+  {
+    "class": "Color3Value",
+    "count": 4,
+    "names": [
+      "ThermoShade",
+      "PreThermoGlowColor",
+      "ThermoGlowColor",
+      "AtomicBreathGlow"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/ThermonuclearG/godzilla"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Lemon/Eye"
+  },
+  {
+    "class": "StringValue",
+    "count": 4,
+    "names": [
+      "EasingStyle"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Teleport/Shock"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "GrabbedSomething",
+      "LAttacking"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Godaran-EVA/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Night/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Bird/Aspects/Info"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Wise/Eye"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Night/Aspects/Info"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 4,
+    "names": [
+      "Emote4",
+      "Emote3",
+      "Emote2",
+      "Emote1"
+    ],
+    "parent": "StarterGui/GameGui/Aspects/Emotes/Values"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Subject/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Delay",
+      "Speed"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/Teleport/Sphere"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Oceanic/Aspects/Info"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "DoWeld"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/Teleport/Shock"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/ShowaGigan/Beam/Attachment/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Peach/Aspects/Info"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 4,
+    "names": [
+      "Emote4",
+      "Emote3",
+      "Emote2",
+      "Emote1"
+    ],
+    "parent": "ReplicatedStorage/Menu/Menu/Emotes/Values"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Gobbler/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "TransparencySpeed",
+      "TransparencyDelay",
+      "Speed",
+      "Delay"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/MechaGodzilla2021/Pulse/Sphere2"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Mud/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Shogun/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Kamen/Aspects/Info"
+  },
+  {
+    "class": "IntValue",
+    "count": 4,
+    "names": [
+      "Null"
+    ],
+    "parent": "ReplicatedStorage/Animations/Gigan/Animations/Idle/Untitled/Keyframe/HumanoidRootPart/Torso/Tail1"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "TransparencySpeed",
+      "TransparencyDelay",
+      "Speed",
+      "Delay"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/TitanusGodzilla/Pulse/Sphere2"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oni/ECT/RightArmSpikes"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/GODARANMATERIAL/Godaran-Default/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Sandy/Aspects/Info"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oceanic/Eye"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Wise/Aspects/Info"
+  },
+  {
+    "class": "Vector3Value",
+    "count": 4,
+    "names": [
+      "EndSize"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/UltEffects/Godzilla2000/Ult/Thin Ring Mesh"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "TransparencySpeed",
+      "TransparencyDelay",
+      "Speed",
+      "Delay"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/TitanusGodzilla/Pulse/Shockwave"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Absorbed/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "Lighting/MechaGodzilla2021-Default/Aspects/Info"
+  },
+  {
+    "class": "Color3Value",
+    "count": 4,
+    "names": [
+      "NormalColor",
+      "UltColor"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Godaran-EVA/Aspects/Colors"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Doppel/Aspects/Info"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Apple/Eye"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Unleashed/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Titanus/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "TransparencySpeed",
+      "TransparencyDelay",
+      "Speed",
+      "Delay"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/TitanusGodzilla/Pulse/Shock"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/ShowaGigan/Beam/HOLDER/Ring"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Rusted/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Speed",
+      "Delay"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/Teleport/Wave3"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Blazing/Aspects/Info"
+  },
+  {
+    "class": "Vector3Value",
+    "count": 4,
+    "names": [
+      "EndSize"
+    ],
+    "parent": "Lighting/Assets/Effects/UltEffects/Godzilla2000/Ult/Thin Ring Mesh"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Lemon/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Gigan/Saw/WD/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/MechaGodzilla2021/MechaGodzilla2021-Faker/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Casauran-Default/Aspects/Info"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Samurai/Eye"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Peach/Eye"
+  },
+  {
+    "class": "StringValue",
+    "count": 4,
+    "names": [
+      "SoundId",
+      "SplashTexture",
+      "TopDownTexture",
+      "StraightTexture"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Model/UI/Rain/RainScript"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Absorbed/Aspects/Info"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 4,
+    "names": [
+      "Loser",
+      "Winner",
+      "Player1",
+      "Player2"
+    ],
+    "parent": "Lighting/Assets/OtherScripts/MeleeClash"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Autumn/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Vespulite-Default/Aspects/Info"
+  },
+  {
+    "class": "Vector3Value",
+    "count": 4,
+    "names": [
+      "EndOr"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Teleport/Shock"
+  },
+  {
+    "class": "StringValue",
+    "count": 4,
+    "names": [
+      "Floor",
+      "Attack",
+      "StunAnimation",
+      "AttackType"
+    ],
+    "parent": "Lighting/Assets/OtherScripts/StunScript"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Armor",
+      "Stunned"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/MinusOne/CharacterAssets/Stats"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Speed"
+    ],
+    "parent": "Lighting/Assets/Effects/UltEffects/Godzilla2000/Ult/Thin Ring Mesh"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Grasslands/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Samurai/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Charcoal/Aspects/Info"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Default/Eye"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/ShowaGigan/Beam/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/DevKaijus/Gamma/Gamma-Default/Aspects/Info"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oceanic/WhaleTail/Part"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Charmed/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "Lighting/KaijusUnused/Models/DummyG2K/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Beetalon-Default/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Waste/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "TurnX",
+      "TurnY"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Vespulite-Default/IsPlayer/TurnMotor"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Delay",
+      "Speed"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Gigan/SwordsSlam/ArmWave"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/DevKaijus/Tricky/Tricky-Wallace/Aspects/Info"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 4,
+    "names": [
+      "SelectedObject",
+      "KaijuFolder",
+      "KaijuModel",
+      "KaijuMenu"
+    ],
+    "parent": "StarterGui/Menu/Menu/Values"
+  },
+  {
+    "class": "ObjectValue",
+    "count": 4,
+    "names": [
+      "Loser",
+      "Winner",
+      "Player1",
+      "Player2"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/OtherScripts/MeleeClash"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Toxic/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Charcoal/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Cyber/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "TransparencyDelay",
+      "TransparencySpeed",
+      "Speed",
+      "Delay"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/MechaGodzilla2021/Pulse/Sphere"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "TransparencyDelay",
+      "TransparencySpeed",
+      "Speed",
+      "Delay"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/TitanusGodzilla/Pulse/Sphere"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Speed",
+      "Delay"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Gigan/SwordsSlam/Shockwave"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Raptor/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Gigan/Beam/HOLDER/Ring"
+  },
+  {
+    "class": "StringValue",
+    "count": 4,
+    "names": [
+      "EasingStyle"
+    ],
+    "parent": "Lighting/Assets/Effects/AttackEffects/Teleport/Shock"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Shogun/Eye"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Ravaged/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Bark/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Delay",
+      "Speed"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Gigan/ULT/Red"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/ShowaGigan-Default/Eye"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "Lighting/KaijuModels1/FanmadeKaijus/Prototype331-Faker/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Destoroyah/Destoroyah-Default/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Punk/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "Lighting/Map/DummyG2K/Aspects/Info"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "DoWeld"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Teleport/Shock"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "TransparencySpeed",
+      "TransparencyDelay",
+      "Speed",
+      "Delay"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/MechaGodzilla2021/Pulse/Shock"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Speed",
+      "Delay"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Teleport/Wave3"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oceanic/Aspects/Info"
+  },
+  {
+    "class": "StringValue",
+    "count": 4,
+    "names": [
+      "SoundId",
+      "SplashTexture",
+      "TopDownTexture",
+      "StraightTexture"
+    ],
+    "parent": "Lighting/Assets/UI/Rain/RainScript"
+  },
+  {
+    "class": "BoolValue",
+    "count": 4,
+    "names": [
+      "Visible"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Bird/Eye"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Apple/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Duration",
+      "DLY"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Gigan/Beam/ParticleEmitter"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-1998/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Default/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Abyssal/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "Lighting/KaijuModels1/OfficialKaijus/ShowaGigan-Default/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Thorned/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Delay",
+      "Speed"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/AttackEffects/Teleport/Sphere"
+  },
+  {
+    "class": "IntValue",
+    "count": 4,
+    "names": [
+      "Null"
+    ],
+    "parent": "ReplicatedStorage/Animations/Gigan/Animations/Idle/Untitled/Keyframe/HumanoidRootPart/Torso/Tail1/Tail2/Tail3"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Godzilla2000/Godzilla2000-Crayon/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Zilla/Zilla-Horned/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Default/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/ShowaGigan/ShowaGigan-Oni/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Rage",
+      "Health",
+      "Weight",
+      "Stamina"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Models/Orga/Orga-Rose/Aspects/Info"
+  },
+  {
+    "class": "NumberValue",
+    "count": 4,
+    "names": [
+      "Speed"
+    ],
+    "parent": "ReplicatedStorage/Assets/Kaijus/Effects/UltEffects/Godzilla2000/Ult/Thin Ring Mesh"
+  }
+]

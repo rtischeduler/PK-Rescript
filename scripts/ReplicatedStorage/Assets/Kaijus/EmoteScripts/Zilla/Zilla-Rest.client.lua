@@ -1,0 +1,1 @@
+require(game.ReplicatedStorage.Assets.Kaijus.EmoteScripts.EmoteHandler).play(script, "120724673037780")
