@@ -3,9 +3,8 @@ name: Apply Patch File
 on:
   push:
     branches: [ main ]
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch:
 
-# Crucial fix: Grant write permissions to the repository contents
 permissions:
   contents: write
 
@@ -19,10 +18,21 @@ jobs:
 
     - name: Apply patch
       run: |
-        if [ -f "patch.patch" ]; then
-          git apply patch.patch
-        else
+        if [ ! -f "patch.patch" ]; then
           echo "patch.patch file not found!"
+          exit 1
+        fi
+
+        if git apply --check --reverse patch.patch >/dev/null 2>&1; then
+          echo "patch.patch is already applied, nothing to do."
+        elif git apply --check patch.patch >/dev/null 2>&1; then
+          git apply patch.patch
+          echo "Applied patch.patch."
+        elif git apply --3way patch.patch; then
+          echo "Applied patch.patch with 3-way merge."
+        else
+          echo "patch.patch does not apply cleanly and is not already applied."
+          git apply --check -v patch.patch || true
           exit 1
         fi
 
@@ -30,13 +40,12 @@ jobs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        
+
         git add .
-        
-        # Only commit and push if changes actually exist to prevent workflow errors
+
         if ! git diff --cached --quiet; then
           git commit -m "chore: automatically applied patch"
           git push
         else
-          echo "No changes to commit (patch might already be applied)."
+          echo "No changes to commit (patch already applied)."
         fi
