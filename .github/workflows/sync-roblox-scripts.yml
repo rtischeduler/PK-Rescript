@@ -1,0 +1,399 @@
+name: Sync Roblox Scripts
+
+# Save as .github/workflows/sync-roblox-scripts.yml in rtischeduler/PK-Rescript
+#
+# Required repo secret:   ROBLOX_API_KEY   (Open Cloud key owned by your group)
+#   Key permissions:      universe.place (read) + assets (read)
+#                         (add legacy-asset:manage if the download step returns 401/403)
+# Default universe ID is 6856492283; override with the manual input or the
+# ROBLOX_UNIVERSE_ID repo variable. If the universe -> place lookup ever fails,
+# set the ROBLOX_PLACE_ID variable (or the place_id input) to skip it.
+
+on:
+  workflow_dispatch:
+    inputs:
+      universe_id:
+        description: "Roblox Universe ID (default 6856492283)"
+        required: false
+        default: "6856492283"
+        type: string
+      place_id:
+        description: "Optional place ID; skips the universe lookup"
+        required: false
+        type: string
+  schedule:
+    - cron: "0 */6 * * *" # every 6 hours; delete this block for manual-only
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-roblox-scripts
+  cancel-in-progress: false
+
+env:
+  LUNE_VERSION: "latest" # old Lune builds cannot read ZSTD-compressed rbxl files
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve universe ID -> root place ID
+        id: place
+        env:
+          ROBLOX_API_KEY: ${{ secrets.ROBLOX_API_KEY }}
+          UNIVERSE_ID: ${{ inputs.universe_id || vars.ROBLOX_UNIVERSE_ID || '6856492283' }}
+          PLACE_ID_OVERRIDE: ${{ inputs.place_id || vars.ROBLOX_PLACE_ID || '97228361671379' }}
+        run: |
+          set -uo pipefail
+          PLACE_ID="${PLACE_ID_OVERRIDE:-}"
+
+          # 1) Open Cloud universe lookup (may need universe:read on the key)
+          if [ -z "$PLACE_ID" ]; then
+            PLACE_ID=$(curl -fsS -H "x-api-key: $ROBLOX_API_KEY" \
+              "https://apis.roblox.com/cloud/v2/universes/$UNIVERSE_ID" 2>/dev/null \
+              | jq -r '.rootPlace // empty' | sed 's#.*/places/##') || PLACE_ID=""
+          fi
+
+          # 2) Fallback: public games endpoint (works for public experiences, no key needed)
+          if ! [[ "$PLACE_ID" =~ ^[0-9]+$ ]]; then
+            PLACE_ID=$(curl -fsS \
+              "https://games.roblox.com/v1/games?universeIds=$UNIVERSE_ID" 2>/dev/null \
+              | jq -r '.data[0].rootPlaceId // empty') || PLACE_ID=""
+          fi
+
+          if ! [[ "$PLACE_ID" =~ ^[0-9]+$ ]]; then
+            echo "::error::Could not resolve a place for universe $UNIVERSE_ID. Set the ROBLOX_PLACE_ID repo variable (or place_id input)."
+            exit 1
+          fi
+          echo "Using place $PLACE_ID"
+          echo "place_id=$PLACE_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Download .rbxl via Asset Delivery API
+        env:
+          ROBLOX_API_KEY: ${{ secrets.ROBLOX_API_KEY }}
+          PLACE_ID: ${{ steps.place.outputs.place_id }}
+        run: |
+          set -euo pipefail
+          LOCATION=$(curl -fsS -H "x-api-key: $ROBLOX_API_KEY" \
+            "https://apis.roblox.com/asset-delivery-api/v1/assetId/$PLACE_ID" \
+            | jq -r '.location')
+          if [ -z "$LOCATION" ] || [ "$LOCATION" = "null" ]; then
+            echo "::error::Asset delivery returned no download location (check key permissions / place ownership)"
+            exit 1
+          fi
+          echo "Download host: $(echo "$LOCATION" | cut -d/ -f1-3)"
+          ok=0
+          for attempt in 1 2 3; do
+            curl -fsSL --compressed "$LOCATION" -o place.rbxl || true
+            # unwrap gzip if the CDN served the file gzipped
+            if [ "$(head -c 2 place.rbxl | od -An -tx1 | tr -d ' \n')" = "1f8b" ]; then
+              mv place.rbxl place.gz && gunzip -c place.gz > place.rbxl && rm place.gz
+            fi
+            # binary rbxl starts with "<roblox!", XML rbxlx with "<roblox "; Lune reads both
+            if head -c 7 place.rbxl | grep -aq '<roblox'; then ok=1; break; fi
+            echo "::warning::Attempt $attempt returned unexpected content"
+            ls -l place.rbxl || true
+            od -An -tx1 -N64 place.rbxl || true
+            head -c 300 place.rbxl | strings | head -5 || true
+            sleep $((attempt * 5))
+          done
+          if [ "$ok" != "1" ]; then
+            echo "::error::Downloaded file is not a Roblox place file (see hex/text dump above)"
+            exit 1
+          fi
+          head -c 8 place.rbxl | grep -aq '<roblox!' && echo "Format: binary rbxl" || echo "Format: XML (rbxlx)"
+          ls -l place.rbxl
+
+      - name: Install Lune (open-source Roblox toolchain)
+        run: |
+          set -euo pipefail
+          if [ "$LUNE_VERSION" = "latest" ]; then
+            API="https://api.github.com/repos/lune-org/lune/releases/latest"
+          else
+            API="https://api.github.com/repos/lune-org/lune/releases/tags/v${LUNE_VERSION}"
+          fi
+          URL=$(curl -fsS -H "Authorization: Bearer ${{ github.token }}" "$API" \
+            | jq -r '.assets[].browser_download_url' \
+            | grep -i linux | grep -i x86_64 | grep '\.zip$' | head -n1)
+          [ -n "$URL" ] || { echo "::error::No Lune linux x86_64 asset found"; exit 1; }
+          echo "Installing $URL"
+          curl -fsSL -o lune.zip "$URL"
+          unzip -q lune.zip -d "$RUNNER_TEMP/lune"
+          chmod +x "$RUNNER_TEMP/lune/lune"
+          "$RUNNER_TEMP/lune/lune" --version
+          echo "$RUNNER_TEMP/lune" >> "$GITHUB_PATH"
+
+      - name: Write extractor script
+        run: |
+          cat > extract.luau <<'EOF'
+          local fs = require("@lune/fs")
+          local roblox = require("@lune/roblox")
+          local process = require("@lune/process")
+
+          local inputPath, outDir, xmlPath = process.args[1], process.args[2], process.args[3]
+
+          local game = roblox.deserializePlace(fs.readFile(inputPath))
+
+          -- rbxl -> rbxlx
+          fs.writeFile(xmlPath, roblox.serializePlace(game, true))
+
+          local function sanitize(name: string): string
+              local s = name:gsub('[<>:"/\\|?*%c]', "_")
+              s = s:gsub("^%s+", ""):gsub("%s+$", "")
+              if s == "" or s == "." or s == ".." then s = "_" end
+              return s
+          end
+
+          local function isScript(i): boolean
+              local c = i.ClassName
+              return c == "Script" or c == "LocalScript" or c == "ModuleScript"
+          end
+
+          local function hasScriptDescendant(i): boolean
+              for _, d in i:GetDescendants() do
+                  if isScript(d) then return true end
+              end
+              return false
+          end
+
+          local function suffixFor(i): string
+              if i.ClassName == "ModuleScript" then return ".lua" end
+              if i.ClassName == "LocalScript" then return ".client.lua" end
+              local ok, rc = pcall(function() return i.RunContext end)
+              if ok and rc and rc.Name == "Client" then return ".client.lua" end
+              return ".server.lua"
+          end
+
+          local count = 0
+
+          local function walk(inst, dir: string)
+              local taken = {}
+              for _, child in inst:GetChildren() do
+                  local isS = isScript(child)
+                  if not isS and not hasScriptDescendant(child) then continue end
+
+                  local base = sanitize(child.Name)
+                  local name, n = base, 1
+                  while taken[name:lower()] do
+                      n += 1
+                      name = base .. " (" .. n .. ")"
+                  end
+                  taken[name:lower()] = true
+
+                  if isS then
+                      local src = child.Source
+                      if hasScriptDescendant(child) then
+                          -- script that contains other scripts -> folder + init file
+                          local folder = dir .. "/" .. name
+                          fs.writeDir(folder)
+                          fs.writeFile(folder .. "/init" .. suffixFor(child), src)
+                          count += 1
+                          walk(child, folder)
+                      else
+                          fs.writeFile(dir .. "/" .. name .. suffixFor(child), src)
+                          count += 1
+                      end
+                  else
+                      local folder = dir .. "/" .. name
+                      fs.writeDir(folder)
+                      walk(child, folder)
+                  end
+              end
+          end
+
+          fs.writeDir(outDir)
+          walk(game, outDir)
+          print(("Extracted %d scripts into %s"):format(count, outDir))
+          EOF
+
+      - name: Convert rbxl -> rbxlx and extract scripts
+        run: |
+          set -euo pipefail
+          rm -rf scripts
+          lune run extract.luau place.rbxl scripts place.rbxlx
+          rm extract.luau lune.zip
+
+      - name: Export value JSONs
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          rm -rf exports.tmp
+          cat > export_values.luau <<'EOF'
+          local fs = require("@lune/fs")
+          local roblox = require("@lune/roblox")
+          local process = require("@lune/process")
+          local serde = require("@lune/serde")
+
+          local inputPath, outDir = process.args[1], process.args[2]
+          local game = roblox.deserializePlace(fs.readFile(inputPath))
+
+          local function hex2(n)
+              return string.format("%02X", math.clamp(math.round(n * 255), 0, 255))
+          end
+
+          local function pathOf(inst)
+              local parts = {}
+              local cur = inst
+              while cur and cur.Parent do
+                  table.insert(parts, 1, cur.Name)
+                  cur = cur.Parent
+              end
+              return table.concat(parts, "/")
+          end
+
+          local function enc(v)
+              local t = typeof(v)
+              if t == "Color3" then
+                  return {
+                      type = "Color3",
+                      r = math.round(v.R * 255),
+                      g = math.round(v.G * 255),
+                      b = math.round(v.B * 255),
+                      hex = hex2(v.R) .. hex2(v.G) .. hex2(v.B),
+                  }
+              elseif t == "BrickColor" then
+                  return { type = "BrickColor", name = v.Name, number = v.Number }
+              elseif t == "Vector3" then
+                  return { type = "Vector3", x = v.X, y = v.Y, z = v.Z }
+              elseif t == "Vector2" then
+                  return { type = "Vector2", x = v.X, y = v.Y }
+              elseif t == "CFrame" then
+                  local ok, comps = pcall(function()
+                      return { v:GetComponents() }
+                  end)
+                  return { type = "CFrame", components = ok and comps or tostring(v) }
+              elseif t == "Instance" then
+                  return { type = "Instance", path = pathOf(v) }
+              elseif t == "number" or t == "string" or t == "boolean" or t == "nil" then
+                  return v
+              end
+              return { type = t, text = tostring(v) }
+          end
+
+          local function matches(name)
+              local l = name:lower()
+              return l:find("recolor", 1, true) ~= nil or l == "colors"
+          end
+
+          local entries = {}
+          local containers = {}
+
+          local function walk(inst, path, inside)
+              for _, c in inst:GetChildren() do
+                  local p = path == "" and c.Name or path .. "/" .. c.Name
+                  local isMatch = matches(c.Name)
+                  local ins = inside or isMatch
+                  if isMatch then
+                      containers[p] = #c:GetDescendants()
+                  end
+                  if ins then
+                      local e = { path = p, class = c.ClassName }
+                      if c:IsA("ValueBase") then
+                          e.value = enc((c :: any).Value)
+                      end
+                      local okA, attrs = pcall(function()
+                          return c:GetAttributes()
+                      end)
+                      if okA and attrs and next(attrs) ~= nil then
+                          local a = {}
+                          for k, v in attrs do
+                              a[k] = enc(v)
+                          end
+                          e.attributes = a
+                      end
+                      table.insert(entries, e)
+                  end
+                  walk(c, p, ins)
+              end
+          end
+
+          walk(game, "", false)
+
+          local overview = {}
+          for _, d in game:GetDescendants() do
+              if d:IsA("ValueBase") then
+                  local parent = d.Parent
+                  local pp = parent and pathOf(parent) or ""
+                  pp = (pp:gsub("%s*%(%d+%)", ""))
+                  local key = d.ClassName .. "|" .. pp
+                  local o = overview[key]
+                  if not o then
+                      o = { class = d.ClassName, parent = pp, count = 0, names = {} }
+                      overview[key] = o
+                  end
+                  o.count += 1
+                  if #o.names < 6 and not table.find(o.names, d.Name) then
+                      table.insert(o.names, d.Name)
+                  end
+              end
+          end
+
+          local list = {}
+          for _, o in overview do
+              table.insert(list, o)
+          end
+          table.sort(list, function(a, b)
+              return a.count > b.count
+          end)
+          while #list > 400 do
+              table.remove(list)
+          end
+
+          fs.writeDir(outDir)
+          fs.writeFile(outDir .. "/recolors.json", serde.encode("json", { count = #entries, containers = containers, entries = entries }, true))
+          fs.writeFile(outDir .. "/value-overview.json", serde.encode("json", list, true))
+          print(("Exported %d recolor entries, %d value groups"):format(#entries, #list))
+          EOF
+          lune run export_values.luau place.rbxl exports.tmp
+          rm export_values.luau
+          rm -rf exports
+          mv exports.tmp exports
+          ls -l exports
+
+      - name: Export events and cleanup report
+        continue-on-error: true
+        run: |
+          set -euo pipefail
+          mkdir -p exports
+          python3 tools/analyze_cleanup.py place.rbxlx exports
+          ls -l exports
+
+      - name: Upload rbxlx as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: place-rbxlx
+          path: place.rbxlx
+          retention-days: 14
+
+      - name: Commit scripts and place file
+        run: |
+          set -euo pipefail
+          rm -f place.rbxl
+          rm -rf place
+          mkdir -p place
+          SIZE=$(stat -c%s place.rbxlx)
+          echo "rbxlx size: $SIZE bytes"
+          if [ "$SIZE" -gt 95000000 ]; then
+            split -b 90M -d -a 3 place.rbxlx place/place.rbxlx.part
+            rm place.rbxlx
+            printf "cat place/place.rbxlx.part* > place.rbxlx\n" > place/REASSEMBLE.txt
+          else
+            mv place.rbxlx place/place.rbxlx
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p exports
+          git add -A scripts place exports
+          if git diff --cached --quiet; then
+            echo "No script or place changes."
+          else
+            git commit -m "Sync scripts and place from Roblox universe"
+            for attempt in 1 2 3; do
+              git pull --rebase origin main && git push && break
+              sleep $((attempt * 5))
+            done
+          fi
