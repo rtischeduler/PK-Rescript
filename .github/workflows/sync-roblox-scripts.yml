@@ -138,8 +138,16 @@ jobs:
 
           local game = roblox.deserializePlace(fs.readFile(inputPath))
 
-          -- rbxl -> rbxlx
-          fs.writeFile(xmlPath, roblox.serializePlace(game, true))
+          -- rbxl -> rbxlx (best effort: very large places make the XML string too big for Lune's memory,
+          -- "memory allocation error: block too big". Script extraction does not need it, so skip on failure.)
+          local okXml, errXml = pcall(function()
+              fs.writeFile(xmlPath, roblox.serializePlace(game, true))
+          end)
+          if not okXml then
+              print("WARNING: could not convert place to rbxlx (" .. tostring(errXml) .. "), skipping the XML copy")
+              if fs.isFile(xmlPath) then fs.removeFile(xmlPath) end
+              collectgarbage()
+          end
 
           local function sanitize(name: string): string
               local s = name:gsub('[<>:"/\\|?*%c]', "_")
@@ -359,6 +367,10 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p exports
+          if [ ! -f place.rbxlx ]; then
+            echo "No place.rbxlx (place too large to convert), skipping cleanup report."
+            exit 0
+          fi
           python3 tools/analyze_cleanup.py place.rbxlx exports
           ls -l exports
 
@@ -368,26 +380,42 @@ jobs:
           name: place-rbxlx
           path: place.rbxlx
           retention-days: 14
+          if-no-files-found: ignore
+
+      - name: Upload binary rbxl as artifact (when the XML copy could not be made)
+        if: ${{ hashFiles('place.rbxlx') == '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: place-rbxl
+          path: place.rbxl
+          retention-days: 14
+          if-no-files-found: ignore
 
       - name: Commit scripts and place file
         run: |
           set -euo pipefail
           rm -f place.rbxl
-          rm -rf place
-          mkdir -p place
-          SIZE=$(stat -c%s place.rbxlx)
-          echo "rbxlx size: $SIZE bytes"
-          if [ "$SIZE" -gt 95000000 ]; then
-            split -b 90M -d -a 3 place.rbxlx place/place.rbxlx.part
-            rm place.rbxlx
-            printf "cat place/place.rbxlx.part* > place.rbxlx\n" > place/REASSEMBLE.txt
+          if [ -f place.rbxlx ]; then
+            rm -rf place
+            mkdir -p place
+            SIZE=$(stat -c%s place.rbxlx)
+            echo "rbxlx size: $SIZE bytes"
+            if [ "$SIZE" -gt 95000000 ]; then
+              split -b 90M -d -a 3 place.rbxlx place/place.rbxlx.part
+              rm place.rbxlx
+              printf "cat place/place.rbxlx.part* > place.rbxlx\n" > place/REASSEMBLE.txt
+            else
+              mv place.rbxlx place/place.rbxlx
+            fi
           else
-            mv place.rbxlx place/place.rbxlx
+            echo "No place.rbxlx (place too large to convert): committing scripts only, place/ left as is."
+            mkdir -p place
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           mkdir -p exports
-          git add -A scripts place exports
+          git add -A scripts exports
+          [ -d place ] && git add -A place || true
           if git diff --cached --quiet; then
             echo "No script or place changes."
           else
