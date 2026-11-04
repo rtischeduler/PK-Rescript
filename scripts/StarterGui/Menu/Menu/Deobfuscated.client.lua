@@ -36,6 +36,20 @@ local sounds = menu:FindFirstChild("Sounds")
 local events = menu:FindFirstChild("Events")
 local values = menu:FindFirstChild("Values")
 
+-- Click sound helper. Debounced so the per-action click and the generic
+-- button click (PATCH 23, replaces ButtonSoundHandler) never double-play.
+local lastClickTime = 0
+local function playClick()
+	if not sounds then return end
+	local now = os.clock()
+	if now - lastClickTime < 0.3 then return end
+	local click = sounds:FindFirstChild("Click")
+	if click then
+		lastClickTime = now
+		click:Play()
+	end
+end
+
 -- GameGui references (gameGui already declared above)
 local lockOnFrame = gameGui.LockOn:FindFirstChild("LockOn")
 local controlFrame = gameGui:FindFirstChild("Control")
@@ -768,6 +782,19 @@ local isMenuOpen = false
 -- PATCH 2: Menu Navigation System
 --==========================================================================
 
+-- Panels that overlay the menu instead of being "screens" (same list the Back handler skips)
+local PANEL_OVERLAYS = { PlayerInfo = true, Prompt = true, Drops = true, Emotes = true }
+
+-- Per-panel token: a slide-out only hides its panel if nothing re-opened/re-closed it since.
+local panelTokens = setmetatable({}, { __mode = "k" })
+
+-- A panel is open when it is visible and sitting at its EndPos
+local function isPanelOpen(panel)
+	local positions = panel:FindFirstChild("Positions")
+	local endPosObj = positions and positions:FindFirstChild("EndPos")
+	return endPosObj ~= nil and panel.Visible and panel.Position == endPosObj.Position
+end
+
 -- TweenToPanel: tweens a panel from StartPos to EndPos (slide in)
 local function TweenToPanel(panel)
 	local tweenSpeed = panel:FindFirstChild("TweenSpeed")
@@ -778,6 +805,9 @@ local function TweenToPanel(panel)
 	local endPosObj = positions:FindFirstChild("EndPos")
 	if not endPosObj then return end
 	local endPos = endPosObj.Position
+
+	-- Invalidate any pending slide-out so it cannot hide this panel after it re-opens
+	panelTokens[panel] = (panelTokens[panel] or 0) + 1
 
 	-- Make the panel visible before tweening it in
 	panel.Visible = true
@@ -813,35 +843,46 @@ local function TweenFromPanel(panel)
 	if not startPosObj then return end
 	local startPos = startPosObj.Position
 
+	local token = (panelTokens[panel] or 0) + 1
+	panelTokens[panel] = token
+
 	local tweenInfo = TweenInfo.new(speed, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 	local tween = TweenService:Create(panel, tweenInfo, { Position = startPos })
 	tween:Play()
-	-- Hide panel after it finishes sliding out so panels don't pile up
+	-- Hide panel after it finishes sliding out, unless it was re-opened meanwhile
 	tween.Completed:Connect(function()
-		panel.Visible = false
+		if panelTokens[panel] == token then
+			panel.Visible = false
+		end
 	end)
 end
 
--- NavigateTo: hide current panel (slide out), show target panel (slide in)
+-- NavigateTo: slide out EVERY other open screen panel, slide in the target.
+-- Does not depend on a remembered "current" panel, because the Back handlers and
+-- the kaiju menu code move panels without going through here.
 local currentPanel = nil
 
 local function NavigateTo(targetPanel)
 	if isBusy then return end
-	if targetPanel == currentPanel then return end
+	if not targetPanel or isPanelOpen(targetPanel) then return end
 	isBusy = true
 
 	-- Play click sound on every navigation
-	if sounds and sounds:FindFirstChild("Click") then
-		if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
-	end
+	playClick()
 
-	local oldPanel = currentPanel
 	currentPanel = targetPanel
 
 	-- Use pcall so isBusy always resets even if tween errors
 	local success, err = pcall(function()
-		if oldPanel then
-			TweenFromPanel(oldPanel)
+		for _, child in menu:GetChildren() do
+			if child ~= targetPanel
+				and child:IsA("GuiObject")
+				and not PANEL_OVERLAYS[child.Name]
+				and child:FindFirstChild("Positions")
+				and child.Visible
+				and not targetPanel:IsDescendantOf(child) then
+				TweenFromPanel(child)
+			end
 		end
 
 		-- Small delay before sliding in the new panel
@@ -914,7 +955,7 @@ for _, panelName in subPanels do
 						if isBusy then return end
 						isBusy = true
 						if sounds and sounds:FindFirstChild("Click") then
-							if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+							if sounds and sounds:FindFirstChild("Click") then playClick() end
 						end
 
 						-- Find ALL visible panels (with Positions) and tween them out
@@ -1030,7 +1071,7 @@ for _, panelName in subPanels do
 						if isBusy then return end
 						isBusy = true
 						if sounds and sounds:FindFirstChild("Click") then
-							if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+							if sounds and sounds:FindFirstChild("Click") then playClick() end
 						end
 
 						-- Find ALL visible panels and tween them out
@@ -1157,7 +1198,7 @@ do
 					if isBusy then return end
 					isBusy = true
 					if sounds and sounds:FindFirstChild("Click") then
-						if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+						if sounds and sounds:FindFirstChild("Click") then playClick() end
 					end
 
 					-- Clear SelectedObject (Back button behavior)
@@ -1283,7 +1324,7 @@ if menu:FindFirstChild("ModeMenus") then
 						if isBusy then return end
 						isBusy = true
 						if sounds and sounds:FindFirstChild("Click") then
-							if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+							if sounds and sounds:FindFirstChild("Click") then playClick() end
 						end
 
 						-- Tween out all visible ModeMenus sub-panels
@@ -1317,7 +1358,7 @@ if menu:FindFirstChild("ModeMenus") then
 						if isBusy then return end
 						isBusy = true
 						if sounds and sounds:FindFirstChild("Click") then
-							if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+							if sounds and sounds:FindFirstChild("Click") then playClick() end
 						end
 
 						for _, otherMode in menu.ModeMenus:GetChildren() do
@@ -1513,7 +1554,7 @@ if promptSelect then
 	promptSelect.MouseButton1Down:Connect(function()
 		if isBusy then return end
 		isBusy = true
-		if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+		if sounds and sounds:FindFirstChild("Click") then playClick() end
 
 		local selItem, owned, parentName, grandParent = getSelectedInfo()
 		if not selItem then isBusy = false return end
@@ -1570,7 +1611,7 @@ end
 local promptClose = menu.Prompt.PromptImage:FindFirstChild("Close")
 if promptClose then
 	promptClose.MouseButton1Down:Connect(function()
-		if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+		if sounds and sounds:FindFirstChild("Click") then playClick() end
 		menu.Prompt.Visible = false
 	end)
 end
@@ -1625,7 +1666,7 @@ end
 for _, descendant in menu:GetDescendants() do
 	if descendant.Name == "Favorite" and descendant:IsA("GuiButton") then
 		descendant.MouseButton1Down:Connect(function()
-			if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+			if sounds and sounds:FindFirstChild("Click") then playClick() end
 			events.SetMain:FireServer(descendant.Parent.Name)
 			descendant.ImageColor3 = Color3.fromRGB(0, 255, 0)
 		end)
@@ -1865,7 +1906,7 @@ if buySeasonBtn then
 	buySeasonBtn.MouseButton1Down:Connect(function()
 		if inventory.GCells.Value >= 1000 and inventory.Rewards.Owned.Value == false then
 			events.BuyItem:FireServer(1000, "RewardsSeasonPass")
-			if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+			if sounds and sounds:FindFirstChild("Click") then playClick() end
 		elseif inventory.GCells.Value < 1000 and inventory.Rewards.Owned.Value == false then
 			buySeasonBtn.TXT.Text = "Not enough GCells"
 			task.wait(0.75)
@@ -2202,7 +2243,7 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
 	-- ButtonB: close prompt
 	if input.KeyCode == Enum.KeyCode.ButtonB then
 		if menu.Prompt.PromptImage.Visible then
-			if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+			if sounds and sounds:FindFirstChild("Click") then playClick() end
 			menu.Prompt.Visible = false
 		end
 	end
@@ -2211,7 +2252,7 @@ UserInputService.InputBegan:Connect(function(input, gameProcessed)
 	if input.KeyCode == Enum.KeyCode.ButtonY then
 		if menu.Prompt.PromptImage.Visible and not isBusy then
 			isBusy = true
-			if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+			if sounds and sounds:FindFirstChild("Click") then playClick() end
 
 			local selItem, owned, parentName, grandParent = getSelectedInfo()
 			if not selItem then isBusy = false return end
@@ -2606,32 +2647,45 @@ end
 -- properly handles skin/emote selection with model preview and free skin auto-equip.
 
 --==========================================================================
--- PATCH 23: Button hover effects (scroll sound + transparency)
+-- PATCH 23: Button hover + click sounds (replaces ButtonSoundHandler)
+-- Every "Button" inside the menu: Scroll sound + transparency on hover,
+-- Click sound on press. Also covers buttons added later.
 --==========================================================================
 
-for _, descendant in menu:GetDescendants() do
-	if descendant:IsA("TextButton") and descendant.Name == "Button" then
-		local parent = descendant.Parent
-		if parent and parent:IsA("GuiObject") then
-			local originalTransparency = parent.ImageTransparency
+local HOVER_TRANSPARENCY = 0
 
-			descendant.MouseEnter:Connect(function()
-				local scrollSound = sounds:FindFirstChild("Scroll")
-				if scrollSound then
-					local clone = scrollSound:Clone()
-					clone.PlayOnRemove = true
-					clone.Parent = script
-					clone:Destroy()
-				end
-				parent.ImageTransparency = 0
-			end)
+local function setupButtonSounds(btn)
+	if not btn:IsA("GuiButton") or btn.Name ~= "Button" then return end
+	if btn:GetAttribute("SoundSetup") then return end
+	local parent = btn.Parent
+	if not parent or not parent:IsA("GuiObject") then return end
+	btn:SetAttribute("SoundSetup", true)
 
-			descendant.MouseLeave:Connect(function()
-				parent.ImageTransparency = originalTransparency
-			end)
+	local hasTransparency = pcall(function() return parent.ImageTransparency end)
+	local originalTransparency = hasTransparency and parent.ImageTransparency or 0
+
+	btn.MouseEnter:Connect(function()
+		local scrollSound = sounds and sounds:FindFirstChild("Scroll")
+		if scrollSound then
+			local clone = scrollSound:Clone()
+			clone.PlayOnRemove = true
+			clone.Parent = script
+			clone:Destroy()
 		end
-	end
+		if hasTransparency then parent.ImageTransparency = HOVER_TRANSPARENCY end
+	end)
+
+	btn.MouseLeave:Connect(function()
+		if hasTransparency then parent.ImageTransparency = originalTransparency end
+	end)
+
+	btn.MouseButton1Down:Connect(playClick)
 end
+
+for _, descendant in menu:GetDescendants() do
+	setupButtonSounds(descendant)
+end
+menu.DescendantAdded:Connect(setupButtonSounds)
 
 --==========================================================================
 -- PATCH 24: Inventory sub-navigation (Kaijus, GCells, Gamepasses, Lootboxes buttons)
@@ -2770,7 +2824,7 @@ for _, descendant in menu:GetDescendants() do
 
 					isBusy = true
 					menu.Prompt.Visible = false
-					if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+					if sounds and sounds:FindFirstChild("Click") then playClick() end
 
 					-- Set the KaijuMenu value (triggers PATCH 17 handler)
 					if kaijuMenuVal then
@@ -3153,7 +3207,7 @@ for _, descendant in menu:GetDescendants() do
 					isBusy = true
 
 					menu.Prompt.Visible = false
-					if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+					if sounds and sounds:FindFirstChild("Click") then playClick() end
 
 					-- Find the Object child and toggle the target panel
 					for _, child in descendant:GetChildren() do
@@ -3264,7 +3318,7 @@ for _, kaijuMenu in (menu:FindFirstChild("KaijuMenus") and menu.KaijuMenus:GetCh
 						btn.MouseButton1Down:Connect(function()
 							if isBusy then return end
 							isBusy = true
-							if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+							if sounds and sounds:FindFirstChild("Click") then playClick() end
 
 							-- Clear SelectedObject (Back button behavior from WorkGui)
 							values.SelectedObject.Value = nil
@@ -3372,7 +3426,7 @@ for _, kaijuMenu in (menu:FindFirstChild("KaijuMenus") and menu.KaijuMenus:GetCh
 					tabBtn.MouseButton1Down:Connect(function()
 						if isBusy then return end
 						isBusy = true
-						if sounds and sounds:FindFirstChild("Click") then sounds.Click:Play() end
+						if sounds and sounds:FindFirstChild("Click") then playClick() end
 
 						-- Toggle each Object value's panel
 						for _, child in ipairs(tabBtn:GetChildren()) do
@@ -3461,3 +3515,27 @@ end)
 
 -- Also call once immediately
 updateXPBars()
+
+--==========================================================================
+-- PATCH 32: isBusy watchdog
+-- Several handlers set isBusy and only clear it at the end of their own
+-- tween/wait chain; if one errors, navigation would stay locked forever.
+-- Releases the lock after 6s, except while a lootbox sequence is running.
+--==========================================================================
+task.spawn(function()
+	local busySince = nil
+	while true do
+		task.wait(0.5)
+		local lootboxActive = isLootboxRolling or (menu:FindFirstChild("Drops") and menu.Drops.Visible)
+		if isBusy and not lootboxActive then
+			busySince = busySince or os.clock()
+			if os.clock() - busySince > 6 then
+				warn("[Deobfuscated] isBusy stuck for 6s - releasing navigation lock")
+				isBusy = false
+				busySince = nil
+			end
+		else
+			busySince = nil
+		end
+	end
+end)

@@ -527,6 +527,58 @@ if events then
 end
 
 --==========================================================================
+-- Preview an emote on the character shown in the menu (ViewPortModel.Char).
+-- Mirrors the original menu: clone the emote LocalScript, point its Char value at the
+-- preview model and parent it under the menu so it runs. EmoteHandler.play stops any
+-- emote that was already playing.
+local function previewEmote(emoteButton, emoteName, kaijuName)
+	local viewPortModel = workspace:FindFirstChild("ViewPortModel")
+	local char = viewPortModel and viewPortModel:FindFirstChild("Char")
+	if not char then return end
+
+	-- Resolve the emote script: the button's EmoteAnimation value, else the EmoteScripts folder
+	local emoteScript = nil
+	local animVal = emoteButton:FindFirstChild("EmoteAnimation")
+	if animVal and typeof(animVal.Value) == "Instance" and animVal.Value:IsA("LocalScript") then
+		emoteScript = animVal.Value
+	end
+	if not emoteScript then
+		local assets = ReplicatedStorage:FindFirstChild("Assets")
+		local kaijus = assets and assets:FindFirstChild("Kaijus")
+		local emoteScripts = kaijus and kaijus:FindFirstChild("EmoteScripts")
+		local kaijuFolder = emoteScripts and emoteScripts:FindFirstChild(kaijuName)
+		local found = kaijuFolder and kaijuFolder:FindFirstChild(emoteName)
+		if found and found:IsA("LocalScript") then
+			emoteScript = found
+		end
+	end
+	if not emoteScript then
+		warn("[KaijuSelectHandler] No emote script found for " .. tostring(emoteName) .. " (" .. tostring(kaijuName) .. ")")
+		return
+	end
+
+	local container = menu:FindFirstChild("EmoteScripts")
+	if not container then
+		container = Instance.new("Folder")
+		container.Name = "EmoteScripts"
+		container.Parent = menu
+	end
+	for _, old in container:GetChildren() do
+		old:Destroy()
+	end
+
+	local clone = emoteScript:Clone()
+	local charVal = clone:FindFirstChild("Char")
+	if not charVal then
+		charVal = Instance.new("ObjectValue")
+		charVal.Name = "Char"
+		charVal.Parent = clone
+	end
+	charVal.Value = char
+	clone.Disabled = false
+	clone.Parent = container
+end
+
 -- Setup EmoteStore: emote buttons preview and select on click
 --==========================================================================
 local function setupEmoteStore(kaijuFrame)
@@ -579,6 +631,9 @@ local function setupEmoteStore(kaijuFrame)
 				cost = cost,
 				onsale = onsale,
 			}
+
+			-- Play the emote on the preview model
+			previewEmote(emoteButton, emoteName, kaijuName)
 
 			-- NOTE: Slot selection is now handled by the 'Select Emote' button,
 			-- not by clicking the emote item directly. Clicking an emote only previews it.

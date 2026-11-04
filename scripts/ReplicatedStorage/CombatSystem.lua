@@ -49,6 +49,36 @@ local DAMAGE_SCALE_PER_HIT = 0.08
 local MIN_DAMAGE_SCALE = 0.5
 local CLASH_WINDOW = 0.15
 local CLASH_COOLDOWN = 1.5
+-- After a clash resolves, any hit still in flight between the same two fighters is thrown away for this long.
+-- (Hitboxes that already touched keep firing after both attacks are cancelled, which used to stun both fighters.)
+local CLASH_LOCK = 0.5
+
+local function recentlyClashed(charA, charB)
+	local key1, key2 = charA, charB
+	if key1.Name > key2.Name then key1, key2 = key2, key1 end
+	local t = clashCooldowns[key1] and clashCooldowns[key1][key2]
+	return t ~= nil and (tick() - t) < CLASH_LOCK
+end
+
+-- First hit wins: a fighter who is stunned, knocked down, grabbed, dead or whose attack was cancelled
+-- cannot land a hit that was already in flight. This stops "both players get stunned" trades.
+local function canAttackerHit(attackerChar)
+	if not attackerChar or not attackerChar.Parent then return false end
+	local hum = attackerChar:FindFirstChildOfClass("Humanoid")
+	if hum and hum.Health <= 0 then return false end
+	local aspects = attackerChar:FindFirstChild("Aspects")
+	local stunFolder = aspects and aspects:FindFirstChild("Stun")
+	if stunFolder then
+		for _, name in ipairs({ "Stunned", "Knockdown", "Grabbed" }) do
+			local v = stunFolder:FindFirstChild(name)
+			if v and v:IsA("BoolValue") and v.Value then return false end
+		end
+	end
+	local plr = Players:GetPlayerFromCharacter(attackerChar)
+	local st = plr and playerState[plr.UserId]
+	if st and (st.isStunned or st.cancelAttack) then return false end
+	return true
+end
 
 ----------------------------------------------------------------
 -- RAGE SYSTEM
@@ -1045,6 +1075,17 @@ end
 local function dealDamage(character, amount, attackerChar, stunDuration, bypassBlock, lookAtAttacker, isHeavyHit)
 	if isTargetRaging(character) then
 		return
+	end
+
+	-- First hit wins: ignore hits from an attacker who can no longer attack (stunned/knocked down/dead/cancelled),
+	-- and hits between two fighters that just clashed. Without this, queued hitboxes stun both sides.
+	if attackerChar and attackerChar ~= character then
+		if not canAttackerHit(attackerChar) then
+			return
+		end
+		if recentlyClashed(attackerChar, character) then
+			return
+		end
 	end
 
 	if not bypassBlock then
